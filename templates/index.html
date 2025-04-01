@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Authentication</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 60%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin: 8px 0 4px;
+        }
+        input[type="text"], textarea, input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .result span {
+            font-weight: bold;
+            font-size: 20px;
+            color: {% if result == 'Real' %} green {% else %} red {% endif %};
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Fake News Detection</h2>
+        <form action="/predict" method="POST">
+            <label for="title">News Title:</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="text">News Text:</label>
+            <textarea id="text" name="text" rows="5" required></textarea>
+
+            <label for="subject">Topic (e.g., Politics, Technology, etc.):</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <input type="submit" value="Check News Authenticity">
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <h3>Prediction: <span>{{ result }}</span></h3>
+            <p><strong>Title:</strong> {{ title }}</p>
+            <p><strong>Text:</strong> {{ text }}</p>
+            <p><strong>Topic:</strong> {{ subject }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
