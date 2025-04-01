@@ -6,8 +6,8 @@ import os
 app = Flask(__name__, template_folder='templates')
 
 # Update the paths to point to your local files
-model_path = "C:/Users/vikal birla/OneDrive/Desktop/ML/Practice/archive/fake_news_model.pkl"
-vectorizer_path = "C:/Users/vikal birla/OneDrive/Desktop/ML/Practice/archive/tfidf_vectorizer.pkl"
+model_path = os.path.join(app.root_path, "fake_news_model.pkl")
+vectorizer_path = os.path.join(app.root_path, "tfidf_vectorizer.pkl")
 
 # Load the trained model and vectorizer
 lr = joblib.load(model_path)  # Load the logistic regression model
