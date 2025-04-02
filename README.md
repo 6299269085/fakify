@@ -58,7 +58,7 @@ Fake news detection is a crucial task in today's digital world. This project aim
 
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/your-username/fakify.git
+   git clone https://github.com/6299269085/fakify.git
    cd fakify
    ```
 2. **Install dependencies:**
@@ -69,7 +69,7 @@ Fake news detection is a crucial task in today's digital world. This project aim
    ```sh
    python app.py
    ```
-4. **Access the app at:** `http://127.0.0.1:5000/`
+4. **Access the app at:** `(https://fakify-r4ro.onrender.com)`
 
 ## Future Improvements
 
